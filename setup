@@ -56,6 +56,7 @@ fetch_sfntly() {
     (
       cd "$SFNTLY_DIR" &&
       git checkout -q "$SFNTLY_COMMIT"
+      rm -rf .git
     )
   fi
 }
@@ -84,6 +85,7 @@ fetch_woff2() {
     (
       cd "$WOFF2_DIR" &&
       git checkout -q "$WOFF2_COMMIT"
+      rm -rf .git
     )
   fi
 }
