@@ -10,7 +10,7 @@ WOFF2_DIR="$VENDOR_DIR"/woff2
 JAVA_DIR="$BASE_DIR"/src/java
 
 SFNTLY_COMMIT='0e3a4a3c8e1623749a7d90cbfa5d431ac15c44ef'
-WOFF2_COMMIT='5bbcf1f8ad44c07e797a088fec1dd2317611089a'
+WOFF2_COMMIT='7b67e12355fe7da148db5c19d4261f0a498a9537'
 
 print_ansi_code() {
   printf '\033[%sm' "$1"
@@ -84,7 +84,8 @@ fetch_woff2() {
     git clone --recursive http://github.com/google/woff2.git "$WOFF2_DIR" &&
     (
       cd "$WOFF2_DIR" &&
-      git checkout -q "$WOFF2_COMMIT"
+      git checkout -q "$WOFF2_COMMIT" &&
+      git submodule update -q --init
       rm -rf .git
     )
   fi
