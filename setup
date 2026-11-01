@@ -84,7 +84,8 @@ fetch_woff2() {
     git clone --recursive http://github.com/google/woff2.git "$WOFF2_DIR" &&
     (
       cd "$WOFF2_DIR" &&
-      git checkout -q "$WOFF2_COMMIT"
+      git checkout -q "$WOFF2_COMMIT" &&
+      git submodule update -q --init
       rm -rf .git
     )
   fi
